@@ -4,9 +4,9 @@
 
 A mobile-first web app that helps foreign workers, international students, and professionals in Japan find the perfect Japanese business phrase for any situation.
 
-**Live URL:** [https://zainrehman.github.io/japan-phrase-gen/](https://zainrehman.github.io/japan-phrase-gen/)
+**Live URL:** `https://YOUR_USERNAME.github.io/japan-phrase-gen/`
 
-> Replace `zainrehman` with your GitHub username after deploying.
+> Replace `YOUR_USERNAME` with your GitHub username after deploying.
 
 ---
 
