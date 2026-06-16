@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Japan Business Phrase Generator — The right Japanese business phrase, every time.">
+  <meta property="og:title" content="Japan Business Phrase Generator | TechReads®">
+  <meta property="og:description" content="The right Japanese business phrase, every time. Keigo made easy for foreign workers in Japan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://techreads.shop/japan-phrase-gen/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0d1b2a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Japan Business Phrase Generator | TechReads®</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <!-- SCREEN: Welcome -->
+    <section class="screen screen-welcome active" id="screen-welcome">
+      <div class="hero">
+        <div class="hero-logo">🇯🇵</div>
+        <h1>Japan Business Phrase Generator</h1>
+        <p class="hero-sub-jp">「ビジネス日本語、完璧に。」</p>
+        <p class="hero-tagline">The right words. Every time. In Japanese.</p>
+        <p class="hero-tool">ビジネス日本語フレーズ生成ツール</p>
+        <p class="viewed-count" id="viewed-count">📚 0 / 30 phrases explored</p>
+        <div class="progress-wrap">
+          <p class="progress-label" id="progress-label">0% complete</p>
+          <div class="progress-track">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+        <div class="cta-group">
+          <button type="button" class="btn btn-primary" onclick="navigate('browse')">
+            <span class="btn-icon">📂</span> シチュエーションから探す
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="navigate('search')">
+            <span class="btn-icon">⌨️</span> フリーワードで検索
+          </button>
+        </div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Browse -->
+    <section class="screen" id="screen-browse">
+      <div class="screen-body">
+        <div class="screen-top">
+          <h2 class="screen-title">シチュエーションを選んでください</h2>
+          <p class="screen-subtitle">Choose your situation</p>
+        </div>
+        <div class="cat-grid" id="cat-grid"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Search -->
+    <section class="screen" id="screen-search">
+      <div class="screen-body">
+        <div class="screen-top">
+          <h2 class="screen-title">キーワードで検索</h2>
+          <p class="screen-subtitle">Search by keyword (English or Japanese)</p>
+        </div>
+        <div class="search-box">
+          <input type="search" class="search-input" id="search-input"
+            placeholder="e.g. apologize for being late / 遅刻 / meeting tomorrow" autocomplete="off">
+          <button type="button" class="btn btn-primary search-btn" onclick="runSearch()">🔍 検索する</button>
+        </div>
+        <div id="search-filters"></div>
+        <div class="phrase-list" id="search-results"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Favorites -->
+    <section class="screen" id="screen-favorites">
+      <div class="screen-body">
+        <div class="screen-top">
+          <h2 class="screen-title">お気に入り</h2>
+          <p class="screen-subtitle">Your saved phrases</p>
+        </div>
+        <div id="fav-filters"></div>
+        <div class="phrase-list" id="favorites-list"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Quiz -->
+    <section class="screen" id="screen-quiz">
+      <div class="screen-body">
+        <div class="screen-top">
+          <h2 class="screen-title">クイズモード</h2>
+          <p class="screen-subtitle">Guess the English meaning</p>
+        </div>
+        <div class="quiz-stats" id="quiz-stats"></div>
+        <div class="quiz-meta">
+          <span id="quiz-progress">Question 1 / 10</span>
+          <span id="quiz-score-live">Score: 0</span>
+        </div>
+        <div id="quiz-content"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Phrase List -->
+    <section class="screen" id="screen-list">
+      <div class="screen-body">
+        <div class="screen-top">
+          <button type="button" class="back-btn" onclick="listBack()">← 戻る</button>
+          <div class="cat-header">
+            <span class="emoji" id="list-emoji"></span>
+            <div>
+              <h2 class="screen-title" id="list-title"></h2>
+              <p class="screen-subtitle">よく使われるフレーズ</p>
+            </div>
+          </div>
+        </div>
+        <div id="list-filters"></div>
+        <div class="phrase-list" id="phrase-list"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+
+    <!-- SCREEN: Detail -->
+    <section class="screen" id="screen-detail">
+      <div class="screen-body">
+        <div class="screen-top">
+          <button type="button" class="back-btn" onclick="detailBack()">← 戻る</button>
+        </div>
+        <div class="detail-content" id="detail-content"></div>
+      </div>
+      <footer class="app-footer">
+        <p>🌸 <strong>TechReads®</strong> — Powered by Qualitex Trading LLC</p>
+        <p style="font-size:0.75rem;opacity:0.6;">© 2026 TechReads® All Rights Reserved</p>
+      </footer>
+    </section>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottom-nav" aria-label="Main navigation">
+    <button type="button" class="nav-item active" data-screen="welcome">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button type="button" class="nav-item" data-screen="browse">
+      <span class="nav-icon">📂</span>
+      <span>Browse</span>
+    </button>
+    <button type="button" class="nav-item" data-screen="search">
+      <span class="nav-icon">🔍</span>
+      <span>Search</span>
+    </button>
+    <button type="button" class="nav-item" data-screen="favorites">
+      <span class="nav-icon">❤️</span>
+      <span>Favorites</span>
+    </button>
+    <button type="button" class="nav-item" data-screen="quiz">
+      <span class="nav-icon">🎯</span>
+      <span>Quiz</span>
+    </button>
+  </nav>
+
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
