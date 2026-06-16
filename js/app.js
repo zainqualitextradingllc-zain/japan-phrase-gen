@@ -1,3 +1,8 @@
+/**
+ * Japan Business Phrase Generator
+ * Copyright © 2026 Qualitex Trading LLC. All Rights Reserved.
+ * TechReads® — Powered by Qualitex Trading LLC
+ */
 /* ═══ App State ═══ */
 const SCREENS = ["welcome", "browse", "search", "list", "detail", "favorites", "quiz"];
 const TAB_SCREENS = ["welcome", "browse", "search", "favorites", "quiz"];

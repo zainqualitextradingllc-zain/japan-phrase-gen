@@ -2,11 +2,13 @@
 
 **「ビジネス日本語フレーズ生成ツール」**
 
-A mobile-first web app that helps foreign workers, international students, and professionals in Japan find the perfect Japanese business phrase for any situation.
+*Type your situation → Get the perfect Japanese business phrase instantly*
 
-**Live URL:** `https://YOUR_USERNAME.github.io/japan-phrase-gen/`
+A mobile-first web app that helps foreign workers, international students, and professionals living and working in Japan find the right Japanese business phrase for any situation.
 
-> Replace `YOUR_USERNAME` with your GitHub username after deploying.
+**Live URL:** [https://zainqualitextradingllc-zain.github.io/japan-phrase-gen/](https://zainqualitextradingllc-zain.github.io/japan-phrase-gen/)
+
+**Repository:** [https://github.com/zainqualitextradingllc-zain/japan-phrase-gen](https://github.com/zainqualitextradingllc-zain/japan-phrase-gen)
 
 ---
 
@@ -77,18 +79,28 @@ python -m http.server 8080
 
 ## Deploy to GitHub Pages
 
-1. Create a new GitHub repo named `japan-phrase-gen`
-2. Push this folder to the `main` branch
-3. Go to **Settings → Pages → Build and deployment**
-4. Set source to **GitHub Actions**
-5. The workflow in `.github/workflows/deploy.yml` deploys automatically on push
+This project auto-deploys via GitHub Actions on every push to `main`.
 
-Your app will be live at: `https://[username].github.io/japan-phrase-gen/`
+1. Push to `https://github.com/zainqualitextradingllc-zain/japan-phrase-gen`
+2. Go to **Settings → Pages → Build and deployment**
+3. Set source to **GitHub Actions**
+4. The workflow in `.github/workflows/deploy.yml` publishes the site automatically
 
 ---
 
-## Branding
+## Branding & Copyright
+
+| | |
+|---|---|
+| **Product** | Japan Business Phrase Generator |
+| **Brand** | TechReads® |
+| **Parent company** | Qualitex Trading LLC |
+| **Relationship** | TechReads® is a sub-brand of Qualitex Trading LLC |
 
 **TechReads®** — Powered by Qualitex Trading LLC
 
-© 2026 TechReads® All Rights Reserved
+Copyright © 2026 **Qualitex Trading LLC**. All Rights Reserved.
+
+TechReads® is a registered trademark of Qualitex Trading LLC. Unauthorized reproduction, distribution, or modification of this application or its content is prohibited without prior written permission from Qualitex Trading LLC.
+
+For licensing, partnerships, or commercial use inquiries, contact Qualitex Trading LLC.

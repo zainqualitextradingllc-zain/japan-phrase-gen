@@ -9,6 +9,8 @@
   "background_color": "#0d1b2a",
   "theme_color": "#0d1b2a",
   "lang": "ja",
+  "id": "/",
+  "categories": ["education", "productivity"],
   "icons": [
     {
       "src": "assets/icon-192.png",
